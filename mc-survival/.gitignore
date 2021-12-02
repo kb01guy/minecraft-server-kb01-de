@@ -1,0 +1,15 @@
+cache/
+logs/
+plugins/
+world/
+world_nether/
+world_the_end/
+banned-ips.json
+banned-players.json
+eula.txt
+help.yml
+ops.json
+*.jar
+usercache.json
+version_history.json
+whitelist.json

@@ -1,0 +1,62 @@
+listeners:
+- query_port: 25577
+  motd: '&1Another Bungee server'
+  tab_list: GLOBAL_PING
+  query_enabled: false
+  proxy_protocol: false
+  forced_hosts:
+    pvp.md-5.net: pvp
+  ping_passthrough: false
+  priorities:
+  - lobby
+  bind_local_address: true
+  host: 0.0.0.0:25577
+  max_players: 50
+  tab_size: 60
+  force_default_server: false
+remote_ping_cache: -1
+network_compression_threshold: 256
+permissions:
+  default:
+  - bungeecord.command.server
+  - bungeecord.command.list
+  admin:
+  - bungeecord.command.alert
+  - bungeecord.command.end
+  - bungeecord.command.ip
+  - bungeecord.command.reload
+log_pings: true
+connection_throttle_limit: 3
+server_connect_timeout: 5000
+timeout: 30000
+stats: d19ca630-77b1-4243-85e3-c07bcf4c4efd
+player_limit: -1
+ip_forward: false
+groups:
+  kB01guy:
+  - admin
+remote_ping_timeout: 5000
+connection_throttle: 4000
+log_commands: false
+prevent_proxy_connections: false
+online_mode: true
+forge_support: false
+disabled_commands:
+- disabledcommandhere
+servers:
+  lobby:
+    motd: '&1Just another BungeeCord - Forced Host'
+    address: mc-lobby:25565
+    restricted: false
+  survival:
+    motd: '&1Just another BungeeCord'
+    address: mc-survival:25565
+    restricted: false
+  creative:
+    motd: '&1Just another BungeeCord'
+    address: mc-creative:25565
+    restricted: false
+  minigames:
+    motd: '&1Just another BungeeCord'
+    address: mc-minigames:25565
+    restricted: false

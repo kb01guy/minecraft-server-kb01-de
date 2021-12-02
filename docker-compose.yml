@@ -1,0 +1,107 @@
+version: '3'
+
+volumes:
+  bungeecord: {}
+
+networks:
+  frontend:
+    # add this if the network is already existing!
+    #external: true
+  backend:
+
+services:
+
+  # Minecraft Network Proxy Server
+  mc-bungeecord:
+    image: itzg/bungeecord
+    container_name: mc_bungeecord
+    environment:
+      BUNGEE_JAR_REVISION: "1"
+      CFG_MOTD: Powered by Docker
+      REPLACE_ENV_VARIABLES: "true"
+      SPIGET_RESOURCES: "28140,241,1488,8695,9531,68956"
+    ports:
+      - "25565:25577"
+    networks:
+      - backend
+    volumes:
+      - ./mc-bungeecord/config.yml:/config/config.yml
+      - bungeecord:/server
+
+  # Minecraft Lobby Server
+  mc-lobby:
+    image: itzg/minecraft-server
+    container_name: mc_lobby
+    environment:
+      TYPE: "PAPER"
+      EULA: "TRUE"
+      ONLINE_MODE: "FALSE"
+      SPIGET_RESOURCES: "71456,63714,6245,87226"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    networks:
+      - backend
+    volumes:
+      - ./mc-lobby:/data
+      - ./logs/lobby.log:/data/logs/latest.log
+
+  # Minecraft Survival Server
+  mc-survival:
+    image: itzg/minecraft-server
+    container_name: mc_survival
+    environment:
+      TYPE: "SPIGOT"
+      EULA: "TRUE"
+      ONLINE_MODE: "FALSE"
+      SPIGET_RESOURCES: "34315,1997,93738,92546,9089,16708,51856,70616,7688,1884,73997"
+      # Extern:
+      # - Emotecraft
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    networks:
+      - backend
+    volumes:
+      - ./mc-survival:/data
+      - ./logs/survival.log:/data/logs/latest.log
+
+  # Minecraft Build Server
+  mc-creative:
+    image: itzg/minecraft-server
+    container_name: mc_creative
+    environment:
+      TYPE: "PAPER"
+      EULA: "TRUE"
+      ONLINE_MODE: "FALSE"
+      SPIGET_RESOURCES: "77506,93738,390,25391,327,70616"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    networks:
+      - backend
+    volumes:
+      - ./mc-creative:/data
+      - ./logs/creative.log:/data/logs/latest.log
+
+  # Minecraft Minigames Server
+  mc-minigames:
+    image: itzg/minecraft-server
+    container_name: mc_minigames
+    environment:
+      TYPE: "PAPER"
+      EULA: "TRUE"
+      ONLINE_MODE: "FALSE"
+      SPIGET_RESOURCES: "390,63714,45928,81702,6245,51321"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+    networks:
+      - backend
+    volumes:
+      - ./mc-minigames:/data
+      - ./logs/minigames.log:/data/logs/latest.log
+
+#  wordpress:
+#
+#  grafana:
