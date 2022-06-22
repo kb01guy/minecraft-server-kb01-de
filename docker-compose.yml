@@ -1,10 +1,10 @@
 version: '3'
 
-volumes:
-  bungeecord: {}
+#volumes:
+#  bungeecord: {}
 
 networks:
-  frontend:
+  #frontend:
     # add this if the network is already existing!
     #external: true
   backend:
@@ -19,14 +19,14 @@ services:
       BUNGEE_JAR_REVISION: "1"
       CFG_MOTD: Powered by Docker
       REPLACE_ENV_VARIABLES: "true"
-      SPIGET_RESOURCES: "28140,241,1488,8695,9531,68956"
+      SPIGET_PLUGINS: "28140,241,1488,8695,9531,68956"
     ports:
       - "25565:25577"
     networks:
       - backend
     volumes:
+      - ./mc-bungeecord:/server
       - ./mc-bungeecord/config.yml:/config/config.yml
-      - bungeecord:/server
 
   # Minecraft Lobby Server
   mc-lobby:
@@ -36,7 +36,11 @@ services:
       TYPE: "PAPER"
       EULA: "TRUE"
       ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "71456,63714,6245,87226"
+      SPIGET_RESOURCES: "1997,390,6245,71465,63714,87226"
+      plugins: "https://github.com/KosmX/emotes/releases/download/2.0.9/emotecraft-2.0.9-bukkit.jar,https://media.forgecdn.net/files/3543/517/voicechat-bukkit-1.18-2.1.16.jar"
+      # Plugins:
+      # - Emotecraft
+      # - 93738 Simple Voice Chat
     tty: true
     stdin_open: true
     restart: unless-stopped
@@ -54,9 +58,11 @@ services:
       TYPE: "SPIGOT"
       EULA: "TRUE"
       ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "34315,1997,93738,92546,9089,16708,51856,70616,7688,1884,73997"
-      # Extern:
+      SPIGET_RESOURCES: "1997,70616,7688,9089,1884,73997,34315,51856,16708,92546"
+      plugins: "https://github.com/KosmX/emotes/releases/download/2.0.9/emotecraft-2.0.9-bukkit.jar,https://media.forgecdn.net/files/3543/517/voicechat-bukkit-1.18-2.1.16.jar"
+      # Plugins:
       # - Emotecraft
+      # - 93738 Simple Voice Chat
     tty: true
     stdin_open: true
     restart: unless-stopped
@@ -66,7 +72,7 @@ services:
       - ./mc-survival:/data
       - ./logs/survival.log:/data/logs/latest.log
 
-  # Minecraft Build Server
+  # Minecraft Creative Server
   mc-creative:
     image: itzg/minecraft-server
     container_name: mc_creative
@@ -74,7 +80,13 @@ services:
       TYPE: "PAPER"
       EULA: "TRUE"
       ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "77506,93738,390,25391,327,70616"
+      SPIGET_RESOURCES: "1997,70616,7688,390,25391,327"
+      plugins: "https://github.com/KosmX/emotes/releases/download/2.0.9/emotecraft-2.0.9-bukkit.jar,https://media.forgecdn.net/files/3543/517/voicechat-bukkit-1.18-2.1.16.jar"
+      # Plugins:
+      # - Emotecraft
+      # - 93738 Simple Voice Chat
+      # Extern:
+      # - 77506 PlotSquared: Premium Ressources require spiget-login, which is not documented for container-use
     tty: true
     stdin_open: true
     restart: unless-stopped
@@ -92,7 +104,14 @@ services:
       TYPE: "PAPER"
       EULA: "TRUE"
       ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "390,63714,45928,81702,6245,51321"
+      SPIGET_RESOURCES: "1997,390,6245,63714,81702"
+      plugins: "https://github.com/KosmX/emotes/releases/download/2.0.9/emotecraft-2.0.9-bukkit.jar,https://media.forgecdn.net/files/3543/517/voicechat-bukkit-1.18-2.1.16.jar"
+      # Plugins:
+      # - Emotecraft
+      # - 93738 Simple Voice Chat
+      # Extern:
+      # - 45928 Quake: Premium Ressources require spiget-login, which is not documented for container-use
+      # - 51321 AntiCooldown: Extern Site Download with Captcha
     tty: true
     stdin_open: true
     restart: unless-stopped

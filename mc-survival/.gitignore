@@ -1,6 +1,10 @@
 cache/
+libraries/
 logs/
-plugins/
+versions/
+plugins/*.jar
+plugins/*-version.json
+plugins/bStats/
 world/
 world_nether/
 world_the_end/

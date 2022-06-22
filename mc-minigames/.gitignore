@@ -1,9 +1,11 @@
 cache/
+libraries/
 logs/
-plugins/
-world/
-world_nether/
-world_the_end/
+versions/
+plugins/*.jar
+plugins/*-version.json
+plugins/bStats/
+lobby/
 Bedwars/
 lobby/
 quake/

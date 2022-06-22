@@ -217,6 +217,7 @@ world-settings:
           per-player: false
           day: 5
     spawn-limits:
+      axolotls: -1
       monster: -1
       creature: -1
       ambient: -1
@@ -264,6 +265,9 @@ world-settings:
         soft: 32
         hard: 64
       misc:
+        soft: 32
+        hard: 128
+      axolotls:
         soft: 32
         hard: 128
     frosted-ice:
@@ -343,3 +347,8 @@ world-settings:
       fix-invulnerable-end-crystal-exploit: true
     squid-spawn-height:
       maximum: 0.0
+    anticheat:
+      obfuscation:
+        items:
+          hide-itemmeta: false
+          hide-durability: false

@@ -1,0 +1,6 @@
+modules/
+plugins/*.jar
+*.jar
+locations.yml
+modules.yml
+*.log.*

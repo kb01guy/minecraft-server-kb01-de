@@ -31,7 +31,7 @@ server_connect_timeout: 5000
 timeout: 30000
 stats: d19ca630-77b1-4243-85e3-c07bcf4c4efd
 player_limit: -1
-ip_forward: false
+ip_forward: true
 groups:
   kB01guy:
   - admin
