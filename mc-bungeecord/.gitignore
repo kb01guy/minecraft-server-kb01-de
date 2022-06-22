@@ -1,5 +1,10 @@
 modules/
 plugins/*.jar
+plugins/bStats/
+plugins/LuckPerms/luckperms-h2*
+plugins/LuckPerms/translations/
+plugins/ServerListPlus/PlayerCache*
+plugins/AdvancedBan/data/
 *.jar
 locations.yml
 modules.yml

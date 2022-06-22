@@ -1,19 +1,38 @@
+# Metadata
 cache/
 libraries/
 logs/
 versions/
-plugins/*.jar
-plugins/*-version.json
-plugins/bStats/
+eula.txt
+help.yml
+*.jar
+version_history.json
+crash-reports/
+
+# Worlds
+backups/
 world/
 world_nether/
 world_the_end/
+
+# Plugins
+plugins/*.jar
+plugins/*-version.json
+plugins/bStats/
+plugins/Updater/
+plugins/WorldEdit/.archive-unpack/
+plugins/WorldEdit/sessions/
+plugins/Vault/
+plugins/ProtocolLib/
+plugins/PluginMetrics/
+plugins/MoreMobHeads/lang/
+plugins/LuckPerms/translations/
+plugins/LuckPerms/luckperms-h2*
+
+# Players
+plugins/MoreMobHeads/player_heads.yml
 banned-ips.json
 banned-players.json
-eula.txt
-help.yml
 ops.json
-*.jar
 usercache.json
-version_history.json
 whitelist.json

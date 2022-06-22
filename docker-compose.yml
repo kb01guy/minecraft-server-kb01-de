@@ -1,12 +1,6 @@
-version: '3'
-
-#volumes:
-#  bungeecord: {}
+version: "2"
 
 networks:
-  #frontend:
-    # add this if the network is already existing!
-    #external: true
   backend:
 
 services:
@@ -15,11 +9,14 @@ services:
   mc-bungeecord:
     image: itzg/bungeecord
     container_name: mc_bungeecord
+    mem_limit: 2GB
     environment:
       BUNGEE_JAR_REVISION: "1"
       CFG_MOTD: Powered by Docker
       REPLACE_ENV_VARIABLES: "true"
-      SPIGET_PLUGINS: "28140,241,1488,8695,9531,68956"
+      SPIGET_PLUGINS: "241,8695,68956"
+      # External Download:
+      # - LuckPerms BungeeCord https://luckperms.net/download
     ports:
       - "25565:25577"
     networks:
@@ -28,41 +25,24 @@ services:
       - ./mc-bungeecord:/server
       - ./mc-bungeecord/config.yml:/config/config.yml
 
-  # Minecraft Lobby Server
-  mc-lobby:
-    image: itzg/minecraft-server
-    container_name: mc_lobby
-    environment:
-      TYPE: "PAPER"
-      EULA: "TRUE"
-      ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "1997,390,6245,71465,63714,87226"
-      plugins: "https://github.com/KosmX/emotes/releases/download/2.0.9/emotecraft-2.0.9-bukkit.jar,https://media.forgecdn.net/files/3543/517/voicechat-bukkit-1.18-2.1.16.jar"
-      # Plugins:
-      # - Emotecraft
-      # - 93738 Simple Voice Chat
-    tty: true
-    stdin_open: true
-    restart: unless-stopped
-    networks:
-      - backend
-    volumes:
-      - ./mc-lobby:/data
-      - ./logs/lobby.log:/data/logs/latest.log
-
   # Minecraft Survival Server
   mc-survival:
     image: itzg/minecraft-server
     container_name: mc_survival
+    mem_limit: 6GB
     environment:
       TYPE: "SPIGOT"
       EULA: "TRUE"
+      MEMORY: ""
+      JVM_XX_OPTS: "-XX:MaxRAMPercentage=75"
       ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "1997,70616,7688,9089,1884,73997,34315,51856,16708,92546"
-      plugins: "https://github.com/KosmX/emotes/releases/download/2.0.9/emotecraft-2.0.9-bukkit.jar,https://media.forgecdn.net/files/3543/517/voicechat-bukkit-1.18-2.1.16.jar"
-      # Plugins:
-      # - Emotecraft
-      # - 93738 Simple Voice Chat
+      SPIGET_RESOURCES: "1997,70616,7688,73997,34315,51856,16708,92546,28140,91064"
+      # External Download:
+      # - Emotecraft https://github.com/KosmX/emotes/releases/latest
+      # - 9089 EssentialsX https://essentialsx.net/downloads.html?branch=stable
+      # - 1884 GriefPrevention https://dev.bukkit.org/projects/grief-prevention/files/3173411
+    ports:
+      - "24454:24454"
     tty: true
     stdin_open: true
     restart: unless-stopped
@@ -72,55 +52,30 @@ services:
       - ./mc-survival:/data
       - ./logs/survival.log:/data/logs/latest.log
 
-  # Minecraft Creative Server
-  mc-creative:
+  # Minecraft Lobby, Creative, Minigames Server
+  mc-main:
     image: itzg/minecraft-server
-    container_name: mc_creative
+    container_name: mc_main
+    mem_limit: 6GB
     environment:
       TYPE: "PAPER"
       EULA: "TRUE"
+      MEMORY: ""
+      JVM_XX_OPTS: "-XX:MaxRAMPercentage=75"
       ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "1997,70616,7688,390,25391,327"
-      plugins: "https://github.com/KosmX/emotes/releases/download/2.0.9/emotecraft-2.0.9-bukkit.jar,https://media.forgecdn.net/files/3543/517/voicechat-bukkit-1.18-2.1.16.jar"
-      # Plugins:
-      # - Emotecraft
-      # - 93738 Simple Voice Chat
-      # Extern:
-      # - 77506 PlotSquared: Premium Ressources require spiget-login, which is not documented for container-use
+      SPIGET_RESOURCES: "390,1997,6245,7688,25391,63714,70616,71465,28140,1166,91064"
+      # External Download:
+      # - Emotecraft https://github.com/KosmX/emotes/releases/latest
+      # - 51321	AntiCooldown https://www.spigotmc.org/resources/anticooldown-1-9-1-18.51321/
+      # - 77506 PlotSquared https://www.spigotmc.org/resources/plotsquared-v6.77506/
+      # - 13932 Fast Async WorldEdit https://ci.athion.net/job/FastAsyncWorldEdit-1.17/lastStableBuild/
+    ports:
+      - "60606:60606"
     tty: true
     stdin_open: true
     restart: unless-stopped
     networks:
       - backend
     volumes:
-      - ./mc-creative:/data
-      - ./logs/creative.log:/data/logs/latest.log
-
-  # Minecraft Minigames Server
-  mc-minigames:
-    image: itzg/minecraft-server
-    container_name: mc_minigames
-    environment:
-      TYPE: "PAPER"
-      EULA: "TRUE"
-      ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "1997,390,6245,63714,81702"
-      plugins: "https://github.com/KosmX/emotes/releases/download/2.0.9/emotecraft-2.0.9-bukkit.jar,https://media.forgecdn.net/files/3543/517/voicechat-bukkit-1.18-2.1.16.jar"
-      # Plugins:
-      # - Emotecraft
-      # - 93738 Simple Voice Chat
-      # Extern:
-      # - 45928 Quake: Premium Ressources require spiget-login, which is not documented for container-use
-      # - 51321 AntiCooldown: Extern Site Download with Captcha
-    tty: true
-    stdin_open: true
-    restart: unless-stopped
-    networks:
-      - backend
-    volumes:
-      - ./mc-minigames:/data
-      - ./logs/minigames.log:/data/logs/latest.log
-
-#  wordpress:
-#
-#  grafana:
+      - ./mc-main:/data
+      - ./logs/main.log:/data/logs/latest.log

@@ -1,0 +1,29 @@
+# Metadata
+cache/
+libraries/
+logs/
+versions/
+eula.txt
+help.yml
+*.jar
+version_history.json
+crash-reports/
+
+# Worlds
+backups/
+lobby/
+Bedwars/
+creative/
+quake/
+
+# Plugins
+plugins/*.jar
+plugins/*-version.json
+plugins/bStats/
+
+# Players
+ops.json
+usercache.json
+banned-ips.json
+banned-players.json
+whitelist.json
