@@ -53,8 +53,8 @@ This is the Proxy-Server that listens to the default Minecraft Port `25565` and 
 | 8695      | Free  | AdvancedBan          | All-In-One Punishment-System                                                                                   | [Github](https://github.com/DevLeoko/AdvancedBan) [Spigot](https://www.spigotmc.org/resources/8695/)                 |
 | 68956     | Free  | UltraStaffChat       | Allows Communication to the Server-Team, throughout the Network and even beyond thanks to Discord-Integration. | [Github](https://github.com/HyperaOfficial/UltraStaffChat) [Spigot](https://www.spigotmc.org/resources/68956/)       |
 
-| 1488      | Free  | BungeeEssentials     | Multiple Essential Functions you might need, all in one Plugin                                                 | [Github](https://github.com/pantherman594/BungeeEssentials) [Spigot](https://www.spigotmc.org/resources/1488/)       |
 #### Main Server: Lobby, Creative, Minigames
+
 This Server Hosts the Lobby, Creative World and Minigames. It is separated, because some Plugins change Vanilla Behaviour.
 AntiCooldown also disables Sweeping Edge and Quake might crash the Server.
 
@@ -64,7 +64,7 @@ It runs on Paper because it is Resource friendly.
 
 | Spigot ID | Price               | Name                      | Description                                                                                       | Links                                                                                                                                           |
 |:---------:| ------------------- | ------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1166      | Free                | HubThat                   | Manages the Server-Hub, the welcome Area for joining Players                                      | [Mind Overflow](https://git.mind-overflow.net/Spigot/HubThat/) [Spigot](https://www.spigotmc.org/resources/hubthat.1166/)                       |
+| 1166      | Free                | HubThat                   | Manages the Server-Hub, the welcome Area for joining Players                                      | [git.beatrice.wtf](https://git.beatrice.wtf/SpigotMC/HubThat) [Spigot](https://www.spigotmc.org/resources/hubthat.1166/)                        |
 | 28140     | Free                | LuckPerms                 | Manages Permissions                                                                               | [Github](https://github.com/lucko/LuckPerms) [Spigot](https://www.spigotmc.org/resources/28140/)                                                |
 | 390       | Free                | Multiverse-Core           | Allows Multi-World-Configuration, needed to load Custom Worlds and not load Vanilla-Worlds        | [Github](https://github.com/Multiverse/Multiverse-Core) [Spigot](https://www.spigotmc.org/resources/390/)                                       |
 | 1997      | Free                | ProtocolLib               | Library Plugin used by Simple Voice Chat                                                          | [Github](https://github.com/Multiverse/Multiverse-Core) [Spigot](https://www.spigotmc.org/resources/390/)                                       |
