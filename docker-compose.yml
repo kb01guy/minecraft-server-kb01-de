@@ -2,6 +2,12 @@ version: "2"
 
 networks:
   backend:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.21.0.0/24"
+          # gateway: "172.21.0.1"
 
 services:
 
@@ -14,13 +20,14 @@ services:
       BUNGEE_JAR_REVISION: "1"
       CFG_MOTD: Powered by Docker
       REPLACE_ENV_VARIABLES: "true"
-      SPIGET_PLUGINS: "241,8695,68956"
+      SPIGET_PLUGINS: "241,8695,68956,80677"
       # External Download:
       # - LuckPerms BungeeCord https://luckperms.net/download
     ports:
       - "25565:25577"
     networks:
-      - backend
+      backend:
+        ipv4_address: 172.21.0.4
     volumes:
       - ./mc-bungeecord:/server
       - ./mc-bungeecord/config.yml:/config/config.yml
@@ -36,18 +43,21 @@ services:
       MEMORY: ""
       JVM_XX_OPTS: "-XX:MaxRAMPercentage=75"
       ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "1997,70616,7688,73997,34315,51856,16708,92546,28140,91064"
+      SPIGET_RESOURCES: "70616,7688,73997,34315,51856,16708,92546,28140,80677"
       # External Download:
       # - Emotecraft https://github.com/KosmX/emotes/releases/latest
       # - 9089 EssentialsX https://essentialsx.net/downloads.html?branch=stable
       # - 1884 GriefPrevention https://dev.bukkit.org/projects/grief-prevention/files/3173411
-    ports:
-      - "24454:24454"
+      # - 93738 SimpleVoiceChat https://www.curseforge.com/minecraft/bukkit-plugins/simple-voice-chat/files/all
+      # - 1.19 Update-Issues 1997 ProtocolLib https://ci.dmulloy2.net/job/ProtocolLib/lastSuccessfulBuild/
+    #ports:
+    #  - "24454:24454"
     tty: true
     stdin_open: true
     restart: unless-stopped
     networks:
-      - backend
+      backend:
+        ipv4_address: 172.21.0.3
     volumes:
       - ./mc-survival:/data
       - ./logs/survival.log:/data/logs/latest.log
@@ -63,7 +73,7 @@ services:
       MEMORY: ""
       JVM_XX_OPTS: "-XX:MaxRAMPercentage=75"
       ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "390,1997,6245,7688,25391,63714,70616,71465,28140,1166,91064"
+      SPIGET_RESOURCES: "390,6245,7688,25391,63714,70616,71465,28140,1166,80677"
       # External Download:
       # - Emotecraft https://github.com/KosmX/emotes/releases/latest
       # - 51321	AntiCooldown https://www.spigotmc.org/resources/anticooldown-1-9-1-18.51321/
@@ -75,7 +85,34 @@ services:
     stdin_open: true
     restart: unless-stopped
     networks:
-      - backend
+      backend:
+        ipv4_address: 172.21.0.6
     volumes:
       - ./mc-main:/data
       - ./logs/main.log:/data/logs/latest.log
+
+  # Nginx Proxy for Mod-support
+  mc-mod-proxy:
+    image: nginx
+    container_name: mc_mod_proxy
+    ports:
+      - "24454:24454/udp" # Simple Voice Mod Port (Survival)
+    networks:
+      backend:
+        ipv4_address: 172.21.0.5
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+
+  # MySQL for Minecraft-Plugin-Use
+  mc-mysql:
+    image: mysql
+    container_name: mc_mysql
+    networks:
+      backend:
+        ipv4_address: 172.21.0.2
+    environment:
+      MYSQL_ROOT_PASSWORD: development-password-todo
+      MYSQL_DATABASE: mc-btm
+      MYSQL_USER: minecraft
+      MYSQL_PASSWORD: development-minecraft-password-todo
+    command: --default-authentication-plugin=mysql_native_password
