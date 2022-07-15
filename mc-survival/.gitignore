@@ -28,9 +28,15 @@ plugins/PluginMetrics/
 plugins/MoreMobHeads/lang/
 plugins/LuckPerms/translations/
 plugins/LuckPerms/luckperms-h2*
+plugins/ArmorStandEditor/lang/
+plugins/ChestShop/languages/
+plugins/Essentials/userdata/
+plugins/GriefPreventionData/ClaimData/
+plugins/GriefPreventionData/PlayerData/
 
 # Players
 plugins/MoreMobHeads/player_heads.yml
+plugins/ChestShop/users.db
 banned-ips.json
 banned-players.json
 ops.json

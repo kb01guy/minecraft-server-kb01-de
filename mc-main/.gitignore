@@ -20,6 +20,12 @@ quake/
 plugins/*.jar
 plugins/*-version.json
 plugins/bStats/
+plugins/Essentials/userdata/
+plugins/LuckPerms/translations/
+plugins/ArmorStandEditor/lang/
+plugins/ChestShop/languages/
+plugins/WorldEdit/.archive-unpack/
+plugins/WorldEdit/sessions/
 
 # Players
 ops.json
