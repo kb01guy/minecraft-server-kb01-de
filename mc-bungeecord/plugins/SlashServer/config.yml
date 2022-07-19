@@ -1,0 +1,6 @@
+servers:
+-   server: survival
+    commands:
+    - survival
+    permission: slashserver.server.survival
+version: 0

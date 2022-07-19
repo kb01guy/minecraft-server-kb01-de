@@ -1,0 +1,228 @@
+# For more explanation see 
+#  https://www.spigotmc.org/resources/bungeeteleportmanager.80677/
+
+Language: ENG
+Bungee: true
+ServerName: main
+Mysql:
+  Status: true
+  Host: mc-mysql
+  Port: 3306
+  DatabaseName: mc-btm
+  SSLEnabled: false
+  AutoReconnect: true
+  VerifyServerCertificate: false
+  User: minecraft
+  Password: development-minecraft-password-todo
+EnableCommands:
+  Back: false
+  Deathback: false
+  Deathzone: false
+  EntityTransport: false
+  FirstSpawn: true
+  Home: false
+  Portal: true
+  RandomTeleport: true
+  Respawn: false
+  SavePoint: false
+  TPA: true
+  Teleport: true
+  Warp: true
+Enable:
+  AccessPermission: false
+  InterfaceHub:
+    Providing:
+      Teleport: true
+    Consuming:
+      Vanish: true
+  VanillaNetherportal: true
+  VanillaEndportal: true
+SilentTp:
+  DoVanish: true
+  VanishCommand: vanish
+TPJoinCooldown: 5
+Effects:
+  BACK:
+    Give:
+      Before: true
+      After: true
+    Before:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+  DEATHBACK:
+    Give:
+      Before: true
+      After: true
+    Before:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+  CUSTOM:
+    Give:
+      Before: true
+      After: true
+    Before:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+  HOME:
+    Give:
+      Before: true
+      After: true
+    Before:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+  PORTAL:
+    Give:
+      Before: true
+      After: true
+    Before:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+  RANDOMTELEPORT:
+    Give:
+      Before: true
+      After: true
+    Before:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+  RESPAWN:
+    Give:
+      After: true
+      Before: true
+    Before:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+  SAVEPOINT:
+    Give:
+      Before: true
+      After: true
+    Before:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+  TELEPORT:
+    Give:
+      After: true
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+  WARP:
+    Give:
+      Before: true
+      After: true
+    Before:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+    After:
+    - FIRE_RESISTANCE;40;1
+    - DAMAGE_RESISTANCE;40;1
+CancelInviteRun: 15
+BackCooldown: 5
+TpAcceptCooldown: 3
+MinimumTimeBefore:
+  Back: 2000
+  Deathback: 2000
+  Custom: 2000
+  FirstSpawn: 2000
+  Home: 2000
+  RandomTeleport: 2000
+  SavePoint: 2000
+  Teleport: 2000
+  Warp: 2000
+CostPer:
+  Use:
+    Back: 100.0
+    EntityTransport: 100.0
+    Home: 100.0
+    PortalServerAllowedMaximum: 10000.0
+    RandomTeleport: 100.0
+    Teleport: 100.0
+    WarpServerAllowedMaximum: 100.0
+  Create:
+    Home: 1000.0
+    Portal: 9142.0
+    Warp: 1000.0
+  NotifyAfterWithdraw:
+    Back: false
+    Home: false
+    RandomTeleport: false
+    Teleport: false
+    Warp: false
+MustConfirmWarpWhereYouPayForIt: true
+Use:
+  CountPerm:
+    Home: HIGHEST
+    Portal: f
+    Warp: HIGHEST
+  FirstSpawn:
+    FirstTimePlayedPlayer:
+      SendToFirstSpawn: true
+    Spigot:
+      DoCommandsAtFirstTime: false
+      CommandAtFirstTime:
+        AsPlayer:
+        - dummy
+        - dummy
+        AsConsole:
+        - dummy
+        - dummy
+    BungeeCord:
+      DoCommandsAtFirstTime: false
+      CommandAtFirstTime:
+        AsPlayer:
+        - dummy
+        - dummy
+        AsConsole:
+        - dummy
+        - dummy
+  EntityTransport:
+    TicketMechanic: false
+  SafeTeleport:
+    Home: false
+    SavePoint: false
+    Warp: false
+EntityTransport:
+  DefaultTicketPerEntity: 1
+  TicketList:
+  - COW;2
+  - SHEEP:3
+  - SKELETON:25
+Portal:
+  LoadPortalInRAM: true
+  BackgroundTask:
+    RepeatAfterSeconds: 3600
+  CooldownAfterUse:
+  - Owner;0y-0d-0h-0m-5s-5ms
+  - Member;0y-0d-0h-0m-5s-5ms
+  - Perm;0y-0d-0h-0m-5s-5ms;btm.portalcooldown.staff
+  - Perm;0y-0d-0h-10m-0s-0ms;btm.portalcooldown.user
+Identifier:
+  Click: click
+  Hover: hover
+Seperator:
+  BetweenFunction: '~'
+  WhithinFuction: '@'
+  Space: +
+  HoverNewLine: ~!~

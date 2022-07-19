@@ -2,12 +2,6 @@ version: "2"
 
 networks:
   backend:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: "172.21.0.0/24"
-          # gateway: "172.21.0.1"
 
 services:
 
@@ -20,14 +14,13 @@ services:
       BUNGEE_JAR_REVISION: "1"
       CFG_MOTD: Powered by Docker
       REPLACE_ENV_VARIABLES: "true"
-      SPIGET_PLUGINS: "241,8695,68956,80677"
+      SPIGET_PLUGINS: "241,8695,68956,80677,95509"
       # External Download:
       # - LuckPerms BungeeCord https://luckperms.net/download
     ports:
       - "25565:25577"
     networks:
-      backend:
-        ipv4_address: 172.21.0.4
+      - backend
     volumes:
       - ./mc-bungeecord:/server
       - ./mc-bungeecord/config.yml:/config/config.yml
@@ -56,8 +49,7 @@ services:
     stdin_open: true
     restart: unless-stopped
     networks:
-      backend:
-        ipv4_address: 172.21.0.3
+      - backend
     volumes:
       - ./mc-survival:/data
       - ./logs/survival.log:/data/logs/latest.log
@@ -73,7 +65,7 @@ services:
       MEMORY: ""
       JVM_XX_OPTS: "-XX:MaxRAMPercentage=75"
       ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "390,6245,7688,25391,63714,70616,71465,28140,1166,80677"
+      SPIGET_RESOURCES: "390,6245,7688,25391,63714,70616,28140,1166,80677,53036"
       # External Download:
       # - Emotecraft https://github.com/KosmX/emotes/releases/latest
       # - 51321	AntiCooldown https://www.spigotmc.org/resources/anticooldown-1-9-1-18.51321/
@@ -85,8 +77,7 @@ services:
     stdin_open: true
     restart: unless-stopped
     networks:
-      backend:
-        ipv4_address: 172.21.0.6
+      - backend
     volumes:
       - ./mc-main:/data
       - ./logs/main.log:/data/logs/latest.log
@@ -108,8 +99,7 @@ services:
     image: mysql
     container_name: mc_mysql
     networks:
-      backend:
-        ipv4_address: 172.21.0.2
+      - backend
     environment:
       MYSQL_ROOT_PASSWORD: development-password-todo
       MYSQL_DATABASE: mc-btm

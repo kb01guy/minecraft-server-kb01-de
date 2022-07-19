@@ -9,6 +9,9 @@ I use this Repository to run my own Minecraft-Server at kB01.de.
 
 
 # Usage
+The following is for this Repository and for the Server Administrator or Developer.  
+For help using the preconfigured Plugins please refer to [player-commands.md](player-commands.md).
+
 Reqirements:
 - git
 - docker
@@ -53,6 +56,7 @@ This is the Proxy-Server that listens to the default Minecraft Port `25565` and 
 | 8695      | Free  | AdvancedBan           | All-In-One Punishment-System                                                                                   | [Github](https://github.com/DevLeoko/AdvancedBan) [Spigot](https://www.spigotmc.org/resources/8695/)             |
 | 68956     | Free  | UltraStaffChat        | Allows Communication to the Server-Team, throughout the Network and even beyond thanks to Discord-Integration. | [Github](https://github.com/HyperaOfficial/UltraStaffChat) [Spigot](https://www.spigotmc.org/resources/68956/)   |
 | 80677     | Free  | BungeeTeleportManager | Teleports across Servers and Dimensions.                                                                       | [GitHub](https://github.com/Avankziar/BungeeTeleportManager) [Spigot](https://www.spigotmc.org/resources/80677/) |
+| 95509     | Free  | SlashServer           | Enables /lobby instead /server main and /survival instead /server survival.                                    | [Github](https://github.com/MTM123/SlashServer) [Spigot](https://www.spigotmc.org/resources/95509/)              |
 
 #### Main Server: Lobby, Creative, Minigames
 
@@ -75,10 +79,9 @@ It runs on Paper because it is Resource friendly.
 | 51321     | Free                | AntiCooldown              | Removes Hit-Cooldown of newer Minecraft Versions for faster PvP experience                        | [Github](https://github.com/YourGameSpace/AntiCooldown) [Spigot](https://www.spigotmc.org/resources/anticooldown-1-9-1-18.51321/)               |
 | 63714     | Free                | Screaming Bedwars         | PvP GameMode in the Sky, Players are trying to destroy the Respawn-Block (Bed) of the other Teams | [Github](https://github.com/ScreamingSandals/BedWars) [Spigot](https://www.spigotmc.org/resources/63714/)                                       |
 | 70616     | Free                | BackupOnEvent             | Automatically creates Backups and manages configured Storage-Space                                | [Github](https://github.com/enayet123/BackupOnEventPlugin) [Spigot](https://www.spigotmc.org/resources/backuponevent.70616/)                    |
-| 71465     | Free                | ImageMap                  | Creates Map-Items displaying Image Files. Used for TV-Like Custom Signs                           | [Github](https://github.com/gorogoro-space/ImageMap) [Spigot](https://www.spigotmc.org/resources/71465/)                                        |
 | 77506     | 15€                 | PlotSquared               | Manages User-Plots for Creative Building                                                          | [Github](https://github.com/IntellectualSites/PlotSquared/) [Spigot](https://www.spigotmc.org/resources/plotsquared-v6.77506/)                  |
 | 80677     | Free                | BungeeTeleportManager     | Teleports across Servers and Dimensions.                                                          | [GitHub](https://github.com/Avankziar/BungeeTeleportManager) [Spigot](https://www.spigotmc.org/resources/80677/)                                |
-
+| 53036     | Free                | Custom Images             | Creates Map-Items displaying Image Files. Used for TV-Like Custom Signs                           | [Github](https://github.com/Andavin/Images) [Spigot](https://www.spigotmc.org/resources/53036/)                                                 |
 
 Planned:
 

@@ -16,13 +16,18 @@ aliases:
   icanhasbukkit:
   - version $1-
 # Teleportation
+  survival:
+  - server survival
   lobby:
-    - btm:warp lobby
-  spawn:
-  - essentials:warp spawn
+  - spawn lobby
   creative:
-  - btm:warp creative
-  bedwars:
-  - btm:warp bedwars
-  shop:
-  - btm:warp shop
+  - spawn creative
+  
+# Home Management
+  home:
+  - plot home $1
+  sethome:
+  - plot alias set $1
+  - plot sethome
+  homes:
+  - plot list mine
