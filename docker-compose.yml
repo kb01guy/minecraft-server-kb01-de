@@ -89,8 +89,7 @@ services:
     ports:
       - "24454:24454/udp" # Simple Voice Mod Port (Survival)
     networks:
-      backend:
-        ipv4_address: 172.21.0.5
+      - backend
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
 
