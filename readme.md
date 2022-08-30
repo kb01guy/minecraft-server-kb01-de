@@ -6,6 +6,9 @@ I use this Repository to run my own Minecraft-Server at kB01.de.
 **This Repository is currently in a Prototyping State!**
 
 
+# Quick Links
+[Permissions](https://github.com/kb01guy/minecraft-server-kb01-de/permissions.md)
+[Player Commands](https://github.com/kb01guy/minecraft-server-kb01-de/player-commands.md)
 
 
 # Usage
@@ -58,6 +61,13 @@ This is the Proxy-Server that listens to the default Minecraft Port `25565` and 
 | 80677     | Free  | BungeeTeleportManager | Teleports across Servers and Dimensions.                                                                       | [GitHub](https://github.com/Avankziar/BungeeTeleportManager) [Spigot](https://www.spigotmc.org/resources/80677/) |
 | 95509     | Free  | SlashServer           | Enables /lobby instead /server main and /survival instead /server survival.                                    | [Github](https://github.com/MTM123/SlashServer) [Spigot](https://www.spigotmc.org/resources/95509/)              |
 
+##### Plugins in Planning
+
+| Spigot ID | Price | Name                  | Description                                                                                                    | Links                                                                                                            |
+|:---------:| ----- | --------------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| 12592     | Free  | Bungee Chat           | Manages your Chat globally on the server                                    | [Github](https://github.com/AuraDevelopmentTeam/BungeeChat2) [Spigot](https://www.spigotmc.org/resources/12592/)              |
+
+
 #### Main Server: Lobby, Creative, Minigames
 
 This Server Hosts the Lobby, Creative World and Minigames. It is separated, because some Plugins change Vanilla Behaviour.
@@ -69,7 +79,7 @@ It runs on Paper because it is Resource friendly.
 
 | Spigot ID | Price               | Name                      | Description                                                                                       | Links                                                                                                                                           |
 |:---------:| ------------------- | ------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1166      | Free                | HubThat                   | Manages the Server-Hub, the welcome Area for joining Players                                      | [git.beatrice.wtf](https://git.beatrice.wtf/SpigotMC/HubThat) [Spigot](https://www.spigotmc.org/resources/hubthat.1166/)                        |
+| 51758     | Free                | Join Commands             | Executes Commands on Player Join. Used for Gamemode and Teleportation to Lobby                    | [Github](https://github.com/SirBlobman/JoinCommands) [Spigot](https://www.spigotmc.org/resources/51758/)                                        |
 | 28140     | Free                | LuckPerms                 | Manages Permissions                                                                               | [Github](https://github.com/lucko/LuckPerms) [Spigot](https://www.spigotmc.org/resources/28140/)                                                |
 | 390       | Free                | Multiverse-Core           | Allows Multi-World-Configuration, needed to load Custom Worlds and not load Vanilla-Worlds        | [Github](https://github.com/Multiverse/Multiverse-Core) [Spigot](https://www.spigotmc.org/resources/390/)                                       |
 | 6245      | Free                | PlaceholderAPI            | Allows you to use Placeholder in nearly any Config-File                                           | [Github](https://github.com/PlaceholderAPI/PlaceholderAPI) [Spigot](https://www.spigotmc.org/resources/6245/)                                   |
@@ -82,14 +92,16 @@ It runs on Paper because it is Resource friendly.
 | 77506     | 15€                 | PlotSquared               | Manages User-Plots for Creative Building                                                          | [Github](https://github.com/IntellectualSites/PlotSquared/) [Spigot](https://www.spigotmc.org/resources/plotsquared-v6.77506/)                  |
 | 80677     | Free                | BungeeTeleportManager     | Teleports across Servers and Dimensions.                                                          | [GitHub](https://github.com/Avankziar/BungeeTeleportManager) [Spigot](https://www.spigotmc.org/resources/80677/)                                |
 | 53036     | Free                | Custom Images             | Creates Map-Items displaying Image Files. Used for TV-Like Custom Signs                           | [Github](https://github.com/Andavin/Images) [Spigot](https://www.spigotmc.org/resources/53036/)                                                 |
+| 92975     | Free                | EconomyPlus               | Economy Plugin using Vault for Plugin Compatibility and MySQL for Storage                         | [Github](https://github.com/ItsWagPvP/EconomyPlus) [Spigot](https://www.spigotmc.org/resources/92975/)                                          |
 
-Planned:
+##### Plugins in Planning
 
 | Spigot ID | Price               | Name                      | Description                                                                                       | Links                                                                                                                                           |
 |:---------:| ------------------- | ------------------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | 45928     | 15€, Closed Source  | Quake                     | Fast paced Shooter-like Minigame with Powerups                                                    | [Spigot](https://www.spigotmc.org/resources/quake-highly-customizable-%E2%80%A2-db-support-%E2%80%A2-leaderboards-%E2%80%A2-bungee-mode.45928/) |
 | 81702     | Free                | uSurvivalGames            | PvP GameMode on the Ground, with loot and a protection Period                                     | [Github](https://github.com/jerzean/UltimateSurvivalGames) [Spigot](https://www.spigotmc.org/resources/usurvivalgames.81702/)                   |
 | 87226     | Free                | Walk in the Park          | Infinite Generating Parkour                                                                       | [Github](https://github.com/Efnilite/Walk-in-the-Park) [Spigot](https://www.spigotmc.org/resources/87226/)                                      |
+| 79165     | Free                | My Home Rules             | Rules-Accept Plugin which uses MySQL for Storage                                                  | [Github](https://github.com/Avankziar/MyHomeRules) [Spigot](https://www.spigotmc.org/resources/79165/)                                          |
 
 #### Survival
 This Game-Server hosts the Survival Map, with Advancements like Protecting your Builds, Teleporting to friendly Players and simple Economy in the Form of Chest-Shops.
@@ -113,3 +125,9 @@ TLDR: Players blame Paper for Things that might not exist.
 | 16708     | Free  | Daily Rewards             | Rewards the Player to stay active. Type `/reward` each Day to get in-game Currency                     | [Github](https://github.com/HalfloveJAR/Daily-Rewards) [Spigot](https://www.spigotmc.org/resources/daily-rewards.16708/)           |
 | 92546     | Free  | Heart                     | Displays Life of Players below their Name.                                                             | [Github](https://github.com/PastaLaPate/Heart/) [Spigot](https://www.spigotmc.org/resources/heart.92546/)                          |
 | 80677     | Free  | BungeeTeleportManager     | Teleports across Servers and Dimensions.                                                               | [GitHub](https://github.com/Avankziar/BungeeTeleportManager) [Spigot](https://www.spigotmc.org/resources/80677/)                   |
+
+##### Plugins in Planning
+
+| Spigot ID | Price | Name                      | Description                                                                                            | Links                                                                                                                              |
+|:---------:| ----- | ------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| 79165     | Free  | My Home Rules             | Rules-Accept Plugin which uses MySQL for Storage                                                       | [Github](https://github.com/Avankziar/MyHomeRules) [Spigot](https://www.spigotmc.org/resources/79165/)                             |
