@@ -7,8 +7,10 @@ I use this Repository to run my own Minecraft-Server at kB01.de.
 
 
 # Quick Links
-[Permissions](https://github.com/kb01guy/minecraft-server-kb01-de/permissions.md)
-[Player Commands](https://github.com/kb01guy/minecraft-server-kb01-de/player-commands.md)
+
+[Permissions](https://github.com/kb01guy/minecraft-server-kb01-de/blob/main/permissions.md)
+
+[Player Commands](https://github.com/kb01guy/minecraft-server-kb01-de/blob/main/player-commands.md)
 
 
 # Usage
