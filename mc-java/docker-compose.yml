@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  mc-java:
+    image: itzg/minecraft-server
+    hostname: mc-java
+    env_file: .env
+    #ports:
+    #  - "24454:24454"
+    volumes:
+      - ./server:/data
