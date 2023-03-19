@@ -1,3 +1,6 @@
 
 # Metadata
 logs/
+
+# Run-Information
+.tools/

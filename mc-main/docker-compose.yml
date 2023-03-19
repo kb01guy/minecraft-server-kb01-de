@@ -1,0 +1,18 @@
+version: '3.8'
+
+networks:
+  backend:
+    external: true
+    name: minecraft-backend
+
+services:
+  mc-main:
+    image: itzg/minecraft-server
+    hostname: mc-main
+    env_file: .env
+#    ports:
+#      - "60606:60606"
+    networks:
+      - backend
+    volumes:
+      - ./mc-main:/data

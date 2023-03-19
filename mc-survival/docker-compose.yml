@@ -1,0 +1,18 @@
+version: '3.8'
+
+networks:
+  backend:
+    external: true
+    name: minecraft-backend
+
+services:
+  mc-survival:
+    image: itzg/minecraft-server
+    hostname: mc-survival
+    env_file: .env
+    #ports:
+    #  - "24454:24454"
+    networks:
+      - backend
+    volumes:
+      - ./mc-survival:/data

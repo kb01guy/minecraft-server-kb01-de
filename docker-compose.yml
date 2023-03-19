@@ -1,86 +1,19 @@
-version: "2"
+version: "3.8"
 
 networks:
   backend:
+    external: true
+    name: minecraft-backend
 
 services:
-
   # Minecraft Network Proxy Server
-  mc-bungeecord:
-    image: itzg/bungeecord
-    container_name: mc_bungeecord
-    mem_limit: 2GB
-    environment:
-      BUNGEE_JAR_REVISION: "1"
-      CFG_MOTD: Powered by Docker
-      REPLACE_ENV_VARIABLES: "true"
-      SPIGET_PLUGINS: "241,8695,68956,80677,95509"
-      # External Download:
-      # - LuckPerms BungeeCord https://luckperms.net/download
-    ports:
-      - "25565:25577"
-    networks:
-      - backend
-    volumes:
-      - ./mc-bungeecord:/server
-      - ./mc-bungeecord/config.yml:/config/config.yml
+  # >> Moved to Stack mc-bungeecord/docker-compose.yml
 
   # Minecraft Survival Server
-  mc-survival:
-    image: itzg/minecraft-server
-    container_name: mc_survival
-    mem_limit: 6GB
-    environment:
-      TYPE: "SPIGOT"
-      EULA: "TRUE"
-      MEMORY: ""
-      JVM_XX_OPTS: "-XX:MaxRAMPercentage=75"
-      ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "70616,7688,73997,34315,51856,16708,92546,28140,80677"
-      # External Download:
-      # - Emotecraft https://github.com/KosmX/emotes/releases/latest
-      # - 9089 EssentialsX https://essentialsx.net/downloads.html?branch=stable
-      # - 1884 GriefPrevention https://dev.bukkit.org/projects/grief-prevention/files/3173411
-      # - 93738 SimpleVoiceChat https://www.curseforge.com/minecraft/bukkit-plugins/simple-voice-chat/files/all
-      # - 1.19 Update-Issues 1997 ProtocolLib https://ci.dmulloy2.net/job/ProtocolLib/lastSuccessfulBuild/
-    #ports:
-    #  - "24454:24454"
-    tty: true
-    stdin_open: true
-    restart: unless-stopped
-    networks:
-      - backend
-    volumes:
-      - ./mc-survival:/data
-      - ./logs/survival.log:/data/logs/latest.log
+  # >> Moved to Stack mc-survival/docker-compose.yml
 
   # Minecraft Lobby, Creative, Minigames Server
-  mc-main:
-    image: itzg/minecraft-server
-    container_name: mc_main
-    mem_limit: 6GB
-    environment:
-      TYPE: "PAPER"
-      EULA: "TRUE"
-      MEMORY: ""
-      JVM_XX_OPTS: "-XX:MaxRAMPercentage=75"
-      ONLINE_MODE: "FALSE"
-      SPIGET_RESOURCES: "390,6245,7688,25391,63714,70616,28140,1166,80677,53036"
-      # External Download:
-      # - Emotecraft https://github.com/KosmX/emotes/releases/latest
-      # - 51321	AntiCooldown https://www.spigotmc.org/resources/anticooldown-1-9-1-18.51321/
-      # - 77506 PlotSquared https://www.spigotmc.org/resources/plotsquared-v6.77506/
-      # - 13932 Fast Async WorldEdit https://ci.athion.net/job/FastAsyncWorldEdit-1.17/lastStableBuild/
-    ports:
-      - "60606:60606"
-    tty: true
-    stdin_open: true
-    restart: unless-stopped
-    networks:
-      - backend
-    volumes:
-      - ./mc-main:/data
-      - ./logs/main.log:/data/logs/latest.log
+  # >> Moved to Stack mc-main/docker-compose.yml
 
   # Nginx Proxy for Mod-support
   mc-mod-proxy:
