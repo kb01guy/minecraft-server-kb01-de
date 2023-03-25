@@ -1,0 +1,21 @@
+# Copyright & Eula
+server/spigot-*.jar
+server/plugins/*.jar
+server/plugins/*/*.jar
+server/plugins/*/*/*.jar
+server/eula.txt
+
+# Run Data
+server/bundler/
+server/logs/
+
+# Server and User Data
+server/world*
+server/banned-*.json
+server/ops.json
+server/usercache.json
+server/whitelist.json
+
+# Uncategorized
+server/help.yml
+
